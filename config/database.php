@@ -1,17 +1,17 @@
 <?php
 
 
-define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
+/*define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
 define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
 define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
 define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
-define('RDS_PORT', $_SERVER['RDS_PORT']);
+define('RDS_PORT', $_SERVER['RDS_PORT']);*/
 
 
 function dbHostname()
 {
-    if (RDS_HOTSNAME) {
-        return RDS_HOTSNAME;
+    if ($_SERVER['RDS_HOSTNAME']) {
+        return $_SERVER['RDS_HOSTNAME'];
     } else {
         return env('DB_HOST', '127.0.0.1');
     }
@@ -20,8 +20,8 @@ function dbHostname()
 
 function dbName()
 {
-    if (RDS_DB_NAME) {
-        return RDS_DB_NAME;
+    if ($_SERVER['RDS_DB_NAME']) {
+        return $_SERVER['RDS_DB_NAME'];
     } else {
 
         return env('DB_DATABASE', 'forge');
@@ -30,8 +30,8 @@ function dbName()
 
 function dbUserName()
 {
-    if (RDS_USERNAME) {
-        return RDS_USERNAME;
+    if ($_SERVER['RDS_USERNAME']) {
+        return $_SERVER['RDS_USERNAME'];
     } else {
         return env('DB_USERNAME', '');
     }
@@ -39,9 +39,9 @@ function dbUserName()
 
 function dbRDSPassword()
 {
-    if (RDS_PASSWORD) {
+    if ($_SERVER['RDS_PASSWORD']) {
 
-        return RDS_PASSWORD;
+        return $_SERVER['RDS_PASSWORD'];
     } else {
         return env('DB_PASSWORD', '');
 
@@ -50,9 +50,9 @@ function dbRDSPassword()
 
 function dbPort()
 {
-    if (RDS_PORT) {
+    if ( $_SERVER['RDS_PORT']) {
 
-        return RDS_PORT;
+        return  $_SERVER['RDS_PORT'];
     } else {
         return env('DB_PORT', '3306');
 
