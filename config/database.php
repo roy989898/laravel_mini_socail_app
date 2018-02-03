@@ -1,10 +1,11 @@
 <?php
 
 
-define('RDS_HOTSNAME', $_SERVER['RDS_HOTSNAME']);
+define('RDS_HOSTNAME', $_SERVER['RDS_HOSTNAME']);
 define('RDS_USERNAME', $_SERVER['RDS_USERNAME']);
 define('RDS_PASSWORD', $_SERVER['RDS_PASSWORD']);
 define('RDS_DB_NAME', $_SERVER['RDS_DB_NAME']);
+define('RDS_PORT', $_SERVER['RDS_PORT']);
 
 
 function dbHostname()
@@ -43,6 +44,17 @@ function dbRDSPassword()
         return RDS_PASSWORD;
     } else {
         return env('DB_PASSWORD', '');
+
+    }
+}
+
+function dbPort()
+{
+    if (RDS_PORT) {
+
+        return RDS_PORT;
+    } else {
+        return env('DB_PORT', '3306');
 
     }
 }
@@ -90,7 +102,7 @@ return [
             'driver' => 'mysql',
 //            'host' => env('DB_HOST', '127.0.0.1'),
             'host' => dbHostname(),
-            'port' => env('DB_PORT', '3306'),
+            'port' => dbPort(),
 //            'database' => env('DB_DATABASE', 'forge'),
             'database' => dbName(),
 //            'username' => env('DB_USERNAME', 'forge'),
