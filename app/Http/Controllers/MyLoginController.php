@@ -8,7 +8,7 @@ class MyLoginController extends Controller
 {
     //
 
-    public function login()
+    public function login(Request $request)
     {
 
     }

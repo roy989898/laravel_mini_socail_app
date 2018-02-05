@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect(route('user_login'));
 });
 
 
-Route::get('/login', 'MyLoginController@showLoginPage')->name('user_login');
+Route::get('/user_login', 'MyLoginController@showLoginPage')->name('user_login');
+
+Route::post('/login', 'MyLoginController@login')->name('login');
