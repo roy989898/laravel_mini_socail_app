@@ -1,0 +1,1 @@
+<a href="{{route('user_login')}}">Login</a>

@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/login', 'MyLoginController@showLoginPage')->name('user_login');
