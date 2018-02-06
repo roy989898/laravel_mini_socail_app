@@ -11,6 +11,8 @@ class MyLoginController extends Controller
     public function login(Request $request)
     {
 
+        return $request;
+
     }
 
     public function logout()
